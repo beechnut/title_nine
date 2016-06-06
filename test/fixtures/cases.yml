@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  institution: MyString
+  state: 
+  opened_at: 2016-05-30 12:21:24
+  closed_at: 2016-05-30 12:21:24
+  status: 
+
+two:
+  institution: MyString
+  state: 
+  opened_at: 2016-05-30 12:21:24
+  closed_at: 2016-05-30 12:21:24
+  status: 
