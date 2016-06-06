@@ -59,12 +59,31 @@ Dates are in the format YYYY-MM-DD, and times are in Eastern Time.
 
 # Roadmap
 
-- Add Institution and State as models.
-- Add filters on institution, state, and date attributes.
-- Geolocate institutions to support mapping applications of this data.
+- Post updates to a Twitter bot.
+- Put a splash page at the root path, to explain what it is and how to use it.
+- Add Institution and State as models, with case counts.
+- Geolocate institutions and provide state boundaries to make mapping this data easier.
+- Can we make the names a little more presentable and approachable?
+- Add filters on date attributes.
+- Set up a custom domain.
+- Mount the API at a subdomain.
+- Add HTML index view so people can see, sort, and filter ongoing cases.
+- Tip jar to pay for hosting, if we need to scale up.
+
+# Bigger Chunks
+
+- Add OAuth-only login
+- Add the ability for logged-in users to get:
+    - Text message alerts
+    - Email alerts and weekly summaries.
+    - Webhooks (like to a Slack channel)
+- Allow logged-in users to select the states and institutions they want to receive notices for, and whether they want to know about opened cases, closed cases, or both.
 
 # Contributing
 
-Contact [Joshua Eaton][contact] if you'd like to get involved with this project in any way -- be it using the data, contributing code, or anything else.
+Contact [Matt Cloyd][cloyd] if you'd like to contribute to the design or development of this web app / API.
 
-[contact]: https://twitter.com/joshua_eaton
+Contact [Joshua Eaton][joshua] if you'd like to get involved with this project in any other way -- be it using the data or anything else.
+
+[joshua]: https://twitter.com/joshua_eaton
+[cloyd]: https://twitter.com/_beechnut
