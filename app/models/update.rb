@@ -1,25 +1,27 @@
+require 'open-uri'
 class Update < ActiveRecord::Base
 
-  validates :data, presence: true
+  # validates :data, presence: true
+  after_create :set_filename
   after_create :perform
 
   def perform
-    if Update.find_by(filename: filename)
+    if Update.where(filename: filename).count > 1
       update_attribute :performed, false
     else
-      save_and_update
+      update
     end
   end
   
   def data
-    CSV.parse read_attribute(:data)
+    CSV.parse read_attribute(:data).to_s
   end
 
   private
 
-  def save_and_update
+  def update
     update_attributes(
-      performed: true
+      performed: true,
       data: URI.parse(filename).open.read
     )
     Updater.new(self).perform
@@ -36,6 +38,10 @@ class Update < ActiveRecord::Base
 
   def repo
     Octokit.repo 'joshua-eaton/Title-IX-investigations'
+  end
+
+  def set_filename
+    update_attribute :filename, filename
   end
 
 end

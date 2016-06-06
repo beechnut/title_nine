@@ -5,7 +5,7 @@ class Updater
   end
 
   def perform
-    CSV.foreach @data, csv_opts do |row|
+    CSV.parse(@data, csv_opts).each do |row|
       c = Case.find_or_create_by! attributes(row)
       c.touch :updated_at
     end
@@ -15,14 +15,14 @@ class Updater
   private
 
   def csv_opts
-    headers: true, converters: :all
+    { headers: true, converters: :all }
   end
 
   def attributes(row)
     {
       state:       row['State'],
       institution: row['Institution'],
-      opened_at:   row['Date opened']
+      opened_at:   Date.strptime(row['Date opened'], "%m/%d/%Y")
     }
   end
 

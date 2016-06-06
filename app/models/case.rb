@@ -1,6 +1,6 @@
 class Case < ActiveRecord::Base
 
-  validates :opened_on,   presence: true
+  validates :opened_at,   presence: true
   validates :institution, presence: true, length: { maximum: 255 }
 
   extend Enumerize
